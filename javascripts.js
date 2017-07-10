@@ -22,4 +22,4 @@ function Minecraft () {
 
 
 var newGame = new Minecraft();
-newGame.createGrid(); 
+newGame.createGrid();
