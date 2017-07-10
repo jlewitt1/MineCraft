@@ -1,0 +1,54 @@
+#container {
+    position: relative;
+    top: 30px;
+    outline:2px solid #000;
+    font-size: 0;
+    margin:auto;
+    height:90vh;
+    width:960px;
+    padding: 0;
+    border: none;
+    overflow: hidden;
+    background-color: #8ACEf8;
+}
+
+.grid {
+    margin:0;
+    padding:0;
+    border:none;
+    outline:1px solid #000;
+    display:inline-block;
+}
+
+.sidenav {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 60px;
+}
+.toolButton{
+    width: 90px;
+    height: 90px;
+    margin-left: 54px;
+    border: 1px solid white;
+    margin-bottom: 10px;
+    margin-top: 26px;
+    text-align: center;
+}
+
+.toolButton img{
+    width: 54px;
+    height: 59px;
+    padding-top: 7px;
+}
+.toolButton p {
+    font-family: 'Londrina Solid', cursive;
+    color: white;
+    font-size: 18px;
+    padding-bottom: 10px;
+}
