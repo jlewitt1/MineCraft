@@ -6,29 +6,30 @@
 //main minecraft
 function Minecraft () {
 
-    //function to create the starting grid layout
-    this.createGrid = function () {
-        for (var i = 0; i < 20; i++) {
-            var rows = $("<div class='rows'></div>")
+    this.createGrid = function(){
+        for(var i = 0; i<25; i++){
+            var rows = $("<div class = 'rows'></div>");
             $("#container").append(rows);
-            $(rows).attr({y: i});
-            for (var k = 0; k < 20; k++) {
-                var columns = $("<div class='columns'></div>")
-                $("#container").append(columns);
-                $(columns).attr({x: k});
-
+            $(rows).attr({
+                y: i
+            });
+            for(var r=0; r<25; r++){
+                var columns =  $("<div class = 'columns'></div>");
+                $(".rows").append(columns);
+                $(columns).attr({
+                    x: r,
+                    y: i
+                });
             }
         }
-
     }
+
+
 
 }
 
 
 
-
-
-
-
 var newGame = new Minecraft();
 newGame.createGrid();
+
