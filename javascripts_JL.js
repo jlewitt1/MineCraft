@@ -22,6 +22,14 @@ function Minecraft () {
 
     }
 
+    this.createTree = function () { //y=4, x=6-10
+ 
+            }
+        }
+
+
+
+    }
 }
 
 
