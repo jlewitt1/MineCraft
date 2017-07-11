@@ -1,3 +1,4 @@
+
 /**
  * Created by hillarosenberg on 2017/07/09.
  */
@@ -6,17 +7,25 @@
 function Minecraft () {
 
     //function to create the starting grid layout
-    this.createGrid = function (){
-        for (var rows = 0; rows < 20; rows++){
-            for (var columns = 0; columns < 25; columns++) {
-                $("#container").append("<div class='grid'></div>");
+    this.createGrid = function () {
+        for (var i = 0; i < 20; i++) {
+            var rows = $("<div class='rows'></div>")
+            $("#container").append(rows);
+            $(rows).attr({y: i});
+            for (var k = 0; k < 20; k++) {
+                var columns = $("<div class='columns'></div>")
+                $("#container").append(columns);
+                $(columns).attr({x: k});
 
             }
         }
-        $(".grid").width(960/25);
-        $(".grid").height(960/25);
+
     }
+
 }
+
+
+
 
 
 
