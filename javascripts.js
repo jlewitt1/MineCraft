@@ -6,6 +6,7 @@
 //main minecraft
 function Minecraft () {
 
+    //create grid with coordinates
     this.createGrid = function(){
         for(var i = 0; i<25; i++){
             var rows = $("<div class = 'rows'></div>");
@@ -13,13 +14,13 @@ function Minecraft () {
             $(rows).attr({
                 y: i
             });
-            for(var r=0; r<25; r++){
+            for(var r=0; r<24; r++){
                 var columns =  $("<div class = 'columns'></div>");
                 $(".rows").append(columns);
                 $(columns).attr({
                     x: r,
                     y: i
-                });
+                }).text(r + ',' + i);
             }
         }
     }
