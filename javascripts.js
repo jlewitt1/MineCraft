@@ -5,7 +5,7 @@
 
 //main minecraft
 function Minecraft () {
-    
+
     this.createGrid = function(){
         for(var i = 0; i<25; i++){
             var rows = $("<div class = 'rows'></div>");
@@ -17,7 +17,8 @@ function Minecraft () {
                 var columns =  $("<div class = 'columns'></div>");
                 $(".rows").append(columns);
                 $(columns).attr({
-                    x: r
+                    x: r,
+                    y: i
                 });
             }
         }
