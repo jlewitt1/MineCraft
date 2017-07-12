@@ -1,6 +1,6 @@
                         //our object constructor
 var Minecraft = function () {
-
+    this.selectedTool;
 };
 
     var images = {"dirt": "dirt.png",
@@ -11,7 +11,7 @@ var Minecraft = function () {
 
     Minecraft.prototype.setValues = function(array, blockType){
          for (var i=0; i<array.length; i++) { 
-            $("#" + array[i]).attr("value", blockType).css("background-image", "url(./images/" + images[blockType] + ")");
+            $("#" + array[i]).attr("data-value", blockType).css("background-size","contain").css("background-image", "url(./images/" + images[blockType] + ")");
          }
     }
 
@@ -29,12 +29,12 @@ var Minecraft = function () {
                 $(columns).attr({
                     id: r + "" + i
                 }).text(r + ',' + i);
-            } //s
+            } 
         }
     };
 
     Minecraft.prototype.createClouds = function () {
-         var cloudArr = ['13','14','15','16','24','25','26','35','27', '28','36','37',];
+         var cloudArr = ['13','14','15','16','24','25','26','35','27', '28','36','37'];
              for (var i=0; i<cloudArr.length; i++) {
                  $("#" + cloudArr[i]).css("background-color", "white");
                  // console.log("#" + cloudArr[i]);
@@ -43,8 +43,9 @@ var Minecraft = function () {
 
     Minecraft.prototype.createGround = function () {
          var groundArr = ['80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','810',
-         '811','812','813','814','815','816','817','818','910','911','912','913','914','914','915','916','917','918', 
-         '100', '101','102','103','104','105','106','107','108', '109', '1010', '1011', '1012', '1013', '1014', '1015', '1016', '1017', '1018'];
+         '811','812','813','814','815','816','817','818','910','911','912','913','914','914','915','916','917','918', '100', '101',
+         '102','103','104','105','106','107','108', '109','110','111','112','113','114','115','116','117','118','119', '1010', '1011', 
+         '1012', '1013', '1014', '1015', '1016', '1017', '1018','1110', '1111', '1112', '1113', '1114', '1115', '1116', '1117', '1118'];
              this.setValues(groundArr, "dirt");     
     };    
 
@@ -57,15 +58,47 @@ var Minecraft = function () {
          var barkArr = ['415','515','615'];
          this.setValues(barkArr, "tree");
        
-        var leafArr = ['214','215','216','314','315','316'];
-        this.setValues(leafArr, "leaf");
+         var leafArr = ['214','215','216','314','315','316'];
+         this.setValues(leafArr, "leaf");
     }; 
 
-    // Minecraft.prototype.removeClickedElement = function() { //add event listener to remove the element when clicked
-    //        $('.sidenav')            
-    //         .on('click', '.toolbutton', function (eventObj) {
-    //         $(this).removeClass(); });
-    // };
+    Minecraft.prototype.removeObject = function() {
+        var self = this;
+        console.log("outside click", this)
+        $(".toolButton").click(function(event){
+            $(".selected").removeClass("selected");
+            $(this).addClass("selected");
+            console.log("inside click",this);
+            self.selectedTool = $(this);
+        });
+
+        $(".columns").click(function(){
+            if(self.selectedTool.attr("data-mine") == $(this).attr("data-value")){
+                $(this).addClass("sky");
+                $("#storage").css("background-image",$(this).css("background-image"));
+            }
+        });
+    };
+
+ 
+                    
+             
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
 
 
 
@@ -76,4 +109,9 @@ newGame.createClouds();
 newGame.createGround();
 newGame.createGrass();
 newGame.createTree();
-// newGame.removeClickedElement();
+newGame.removeObject();
+newGame.addObject();
+
+
+
+
