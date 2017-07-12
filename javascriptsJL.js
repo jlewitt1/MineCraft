@@ -29,7 +29,7 @@ var Minecraft = function () {
                 $(columns).attr({
                     id: r + "" + i
                 }).text(r + ',' + i);
-            }
+            } //s
         }
     };
 
