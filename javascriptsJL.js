@@ -26,8 +26,7 @@ var Minecraft = function () {
                     var columns =  $("<div class = 'columns'></div>");
                     $(".rows").append(columns);
                     $(columns).attr({
-                        id: r + "" + i
-                    }).text(r + ',' + i);
+                        id: r + "" + i}).text(r + ',' + i);
                 }
             }
         };
@@ -59,10 +58,10 @@ var Minecraft = function () {
             var leafArr = ['214','215','216','314','315','316'];
             this.setValues(leafArr, "tree", "leaf");
         };
+
         Minecraft.prototype.createRock = function () {
             var rockArr = ['613','614'];
             this.setValues(rockArr, "rock", "rock");
-
         };
 
         Minecraft.prototype.removeObject = function() {
@@ -83,11 +82,14 @@ var Minecraft = function () {
             });
         };
 
-var newGame = new Minecraft();
-newGame.createGrid();
-newGame.createClouds();
-newGame.createGround();
-newGame.createGrass();
-newGame.createTree();
-newGame.createRock();
-newGame.removeObject();
+        Minecraft.prototype.setUpGame = function() {
+            this.createGrid();
+            this.createClouds();
+            this.createGround();
+            this.createGrass();
+            this.createTree();
+            this.createRock();
+        };
+
+        var newGame = new Minecraft();
+        newGame.setUpGame();
