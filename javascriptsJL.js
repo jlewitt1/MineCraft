@@ -1,8 +1,19 @@
-
-//our object constructor
+                        //our object constructor
 var Minecraft = function () {
 
 };
+
+    var images = {"dirt": "dirt.png",
+                  "grass": "grass.png",
+                  "tree": "tree.png",
+                  "leaf": "leaf.png"
+    }
+
+    Minecraft.prototype.setValues = function(array, blockType){
+         for (var i=0; i<array.length; i++) { 
+            $("#" + array[i]).attr("value", blockType).css("background-image", "url(./images/" + images[blockType] + ")");
+         }
+    }
 
     //create grid with coordinates
     Minecraft.prototype.createGrid = function(){
@@ -34,35 +45,27 @@ var Minecraft = function () {
          var groundArr = ['80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','810',
          '811','812','813','814','815','816','817','818','910','911','912','913','914','914','915','916','917','918', 
          '100', '101','102','103','104','105','106','107','108', '109', '1010', '1011', '1012', '1013', '1014', '1015', '1016', '1017', '1018'];
-             for (var i=0; i<groundArr.length; i++) { 
-                $("#" + groundArr[i]).css("background-image", "url(./images/dirt.png)");
-             }
+             this.setValues(groundArr, "dirt");     
     };    
 
     Minecraft.prototype.createGrass = function () {
          var grassArr = ['70','71','72','73','74','75','76','77','78','79','710','711','712','713','714','714','715','716','717','718'];
-             for (var i=0; i<grassArr.length; i++) { 
-                $("#" + grassArr[i]).css("background-image", "url(./images/grass.png)");
-             }
+         this.setValues(grassArr, "grass");
     }; 
 
     Minecraft.prototype.createTree = function () {
          var barkArr = ['415','515','615'];
-             for (var i=0; i<barkArr.length; i++) { 
-                $("#" + barkArr[i]).css("background-image", "url(./images/tree.png)");
-             }
+         this.setValues(barkArr, "tree");
        
         var leafArr = ['214','215','216','314','315','316'];
-         for (var i=0; i<leafArr.length; i++) { 
-            $("#" + leafArr[i]).css("background-image", "url(./images/leaf.png)");
-         }
+        this.setValues(leafArr, "leaf");
     }; 
 
-    Minecraft.prototype.removeClickedElement = function() { //add event listener to remove the element when clicked
-           $('.sidenav')            
-            .on('click', '.toolbutton', function (eventObj) {
-            $(this).removeClass(); });
-    };
+    // Minecraft.prototype.removeClickedElement = function() { //add event listener to remove the element when clicked
+    //        $('.sidenav')            
+    //         .on('click', '.toolbutton', function (eventObj) {
+    //         $(this).removeClass(); });
+    // };
 
 
 
@@ -73,4 +76,4 @@ newGame.createClouds();
 newGame.createGround();
 newGame.createGrass();
 newGame.createTree();
-newGame.removeClickedElement();
+// newGame.removeClickedElement();
