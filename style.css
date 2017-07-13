@@ -3,12 +3,12 @@ body {
     background-image: url('./images/blue.jpg');
     background-repeat: no-repeat;
     background-size: cover;
- }
+}
 
  .header { 
     font-family: 'Londrina Solid', cursive;
     text-align: center;
-  }
+}
 
 #container {
     position: relative;
@@ -33,6 +33,7 @@ body {
     width: 50px;
     height: 50px;
 }
+
 .columns {
     margin:0;
     padding:0;
@@ -56,6 +57,7 @@ body {
     overflow-x: hidden;
     padding-top: 60px;
 }
+
 .toolButton{
     width: 90px;
     height: 90px;
@@ -71,15 +73,19 @@ body {
     height: 59px;
     padding-top: 7px;
 }
+
 .toolButton p {
     font-family: 'Londrina Solid', cursive;
     color: white;
     font-size: 18px;
     padding-bottom: 10px;
 }
+
 .selected {
     border: 4px solid white;
+    cursor: move;
 }
+
 .sky {
     opacity: 0;
 }
