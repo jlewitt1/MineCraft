@@ -8,7 +8,7 @@ var Minecraft = function () {
         "leaf": "leaf.png",
         "rock": "rock.png"
     };
-    
+
     //functionality
     Minecraft.prototype.setValues = function(array,value, blockType){
         for (var i=0; i<array.length; i++) {
@@ -63,21 +63,21 @@ var Minecraft = function () {
     };
 
     Minecraft.prototype.removeObject = function(blockType) {
-        var self = this;
+        var MinecraftRef = this;
 
         $(".toolButton").click(function(event){
             $(".selected").removeClass("selected");
             $(this).addClass("selected").css("cursor", "url(./images/" + images[blockType]);
-            self.selectedTool = $(this);
+            MinecraftRef.selectedTool = $(this);
         });
         $(".columns").click(function(){ //change storage box to background of clicked element
             
-            if(self.selectedTool.attr("id") == "storage"  ){ 
+            if(MinecraftRef.selectedTool.attr("id") == "storage") { 
                 $(this).css("background-image", $("#storage").css("background-image"));
                 $(this).removeClass("sky");
                 $("#storage").css("background-image", "none");
 
-            } else if(self.selectedTool.attr("data-mine") == $(this).attr("data-value")){
+            } else if(MinecraftRef.selectedTool.attr("data-mine") == $(this).attr("data-value")){
                 $(this).addClass("sky");
                 $("#storage").css("background-image",$(this).css("background-image"));
             }
